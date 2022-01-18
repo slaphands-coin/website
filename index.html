@@ -7,6 +7,7 @@
     <title>Slaphands.com</title>
 
     <!-- CSS import -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.10.0/dist/css/uikit.min.css">
     <link rel="stylesheet" href="/styles.css">
 </head>
@@ -16,16 +17,75 @@
         <h1 class="uk-text-center uk-margin-remove-bottom">Slaphands.com</h1>
         <h3 class="uk-text-center uk-margin-remove-top">(in a non-sexual way)</h3>
         <p class="uk-text-center">Receive virtual highfives and get the highfive token as a reward!</p>
-        <div class="uk-card uk-card-body uk-card-default uk-width-large uk-margin-auto">
-            <h3 class="uk-card-title">Hi</h3>
+
+        <div style="width:max-content;" class="uk-margin-auto" id="connect_btn_holder">
+            <button class="uk-button uk-button-primary" id="connect">Connect your wallet</button>
+        </div>
+
+        <div class=" uk-card uk-card-body uk-card-default uk-width-large uk-margin-auto uk-position-relative" id="user_info_holder">
+            <h3 class="uk-card-title">Hi <a id="view_address"><span id="user_address"></span><svg style="width:14px;height:14px" viewBox="0 0 24 24"><path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg></a></h3>
+
+            <hr style="width:max-content;" class="uk-divider-small uk-margin-auto">
+            <h4 class="uk-text-center uk-margin-remove-bottom uk-margin-remove-top">Highfives</h4>
+            <div class="uk-flex">
+                <div class="uk-width-expand">
+                    <p class="uk-text-center uk-margin-remove-top uk-margin-remove-bottom">Received</p>
+                    <h1 class="uk-text-center uk-margin-remove-top uk-margin-remove-bottom" id="received_count">0</h1>
+                </div>
+                <div class="uk-width-expand">
+                    <p class="uk-text-center uk-margin-remove-top uk-margin-remove-bottom">Given</p>
+                    <h1 class="uk-text-center uk-margin-remove-top uk-margin-remove-bottom" id="given_count">0</h1>
+                </div>
+            </div>
+
+            <hr style="width:max-content; margin-top: 20px;" class="uk-divider-small uk-margin-auto">
+            <h4 class="uk-text-center uk-margin-remove-top uk-margin-small-bottom">Share your link</h4>
+            <div class="uk-margin-auto uk-margin-bottom" uk-grid>
+                <input type="text" value="https://yayaayayaya" class="uk-input uk-display-inline-block uk-width-auto" id="invite_link">
+                <button class="uk-button uk-button-primary uk-display-inline-block uk-width-expand" id="copy">Copy</button>
+            </div>
+
+            <hr style="width:max-content; margin-top: 30px;" class="uk-divider-small uk-margin-auto">
+            <h4 class="uk-text-center uk-margin-remove-top uk-margin-small-bottom">Payout</h4>
+            <button class="uk-button uk-button-primary uk-width-1-1">Request payout of <span>0</span> highfives</button>
+
+
+            <div class="uk-position-top uk-padding uk-padding-remove-top" style="margin-top: 15px;">Minted balance: <span id="balance">0</span></div>
         </div>
     </div>
+
     <div id="highfive" class="hidden uk-container uk-container-small uk-padding">
         Feet
     </div>
 
+
+    <div id="overlays">
+        <div id="login" class="hidden uk-overlay-default uk-overlay uk-position-top uk-position-left uk-position-bottom uk-position-right uk-text-center">
+            <div class="uk-card uk-card-body uk-card-default uk-width-large uk-margin-auto">
+                <h3 class="uk-text-center">Please login with Metamask</h3>
+                <button class="uk-button uk-button-default" id="connect_wallet">Connect your wallet</button>
+            </div>
+        </div>
+
+        <div id="blur" class="hidden uk-overlay-default uk-overlay uk-position-top uk-position-left uk-position-bottom uk-position-right">&nbsp;</div>
+
+        <div id="install" class="hidden uk-overlay-default uk-overlay uk-position-top uk-position-left uk-position-bottom uk-position-right uk-text-center">
+            <a href="https://metamask.io/download/" target="_blank">
+                <img src="https://raw.githubusercontent.com/MetaMask/brand-resources/master/SVG/metamask-fox-wordmark-stacked.svg" class="uk-width-medium">
+                <h3 class="uk-text-center uk-margin-remove-top">This website only supports Metamask!</h3>
+            </a>
+        </div>
+    </div>
+
+    <div id="stats" class="uk-position-top uk-text-center uk-flex-inline uk-flex-center uk-grid-small">
+        <div style="width: 200px;" class="uk-text-right">0 total highfives</div>
+        <div style="width: 200px;" class="uk-text-left">1 highfive = 0 matic</div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.10.0/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.10.0/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 
 </html>
