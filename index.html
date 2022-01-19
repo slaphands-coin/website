@@ -16,13 +16,13 @@
     <div id="home" class="uk-container uk-container-xsmall uk-padding">
         <h1 class="uk-text-center uk-margin-remove-bottom">Slaphands.com</h1>
         <h3 class="uk-text-center uk-margin-remove-top">(in a non-sexual way)</h3>
-        <p class="uk-text-center">Receive virtual highfives and get the highfive token as a reward!</p>
+        <p class="uk-text-center">Receive virtual highfives and get <a href="https://polygonscan.com/token/0xa0c57cd1222f8c756d82f0798bc3f9f1a15d5519" target="_blank">HIGHFIVE</a> as a reward!</p>
 
         <div style="width:max-content;" class="uk-margin-auto" id="connect_btn_holder">
             <button class="uk-button uk-button-primary" id="connect">Connect your wallet</button>
         </div>
 
-        <div class=" uk-card uk-card-body uk-card-default uk-width-large uk-margin-auto uk-position-relative" id="user_info_holder">
+        <div class="hidden uk-card uk-card-body uk-card-default uk-width-large uk-margin-auto uk-position-relative" id="user_info_holder">
             <h3 class="uk-card-title">Hi <a id="view_address"><span id="user_address"></span><svg style="width:14px;height:14px" viewBox="0 0 24 24"><path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg></a></h3>
 
             <hr style="width:max-content;" class="uk-divider-small uk-margin-auto">
@@ -47,7 +47,7 @@
 
             <hr style="width:max-content; margin-top: 30px;" class="uk-divider-small uk-margin-auto">
             <h4 class="uk-text-center uk-margin-remove-top uk-margin-small-bottom">Payout</h4>
-            <button class="uk-button uk-button-primary uk-width-1-1">Request payout of <span>0</span> highfives</button>
+            <button class="uk-button uk-button-primary uk-width-1-1">Request payout of <span id="payout_amount">0</span> highfives</button>
 
 
             <div class="uk-position-top uk-padding uk-padding-remove-top" style="margin-top: 15px;">Minted balance: <span id="balance">0</span></div>
@@ -55,7 +55,19 @@
     </div>
 
     <div id="highfive" class="hidden uk-container uk-container-small uk-padding">
-        Feet
+        <h1 class="uk-text-center uk-margin-remove-bottom">Slaphands.com</h1>
+        <h3 class="uk-text-center uk-margin-remove-top">Give <span id="target_account" class="uk-text-bolder">0x00...0000</span> a highfive!</h3>
+
+        <div style="width:max-content;" class="uk-margin-auto">
+            <button class="uk-button uk-button-primary" id="highfive_connect">Connect your wallet</button>
+        </div>
+        <div style="width:max-content;" class="uk-margin-auto">
+            <button class="uk-button uk-button-primary hidden" id="highfive_btn">Highfive!</button>
+        </div>
+        <div class="uk-padding hidden" id="thanks_msg">
+            <p class="uk-text-center uk-margin-remove-bottom"><span id="target_account_small">0x00...0000</span> received your virtual highfive and got <a href="https://polygonscan.com/token/0xa0c57cd1222f8c756d82f0798bc3f9f1a15d5519" target="_blank">HIGHFIVE</a> as a reward!</p>
+            <p class="uk-text-center uk-margin-remove-top"><a href="/">I want to receive virtual highfives aswell!</a></p>
+        </div>
     </div>
 
 
@@ -78,7 +90,7 @@
     </div>
 
     <div id="stats" class="uk-position-top uk-text-center uk-flex-inline uk-flex-center uk-grid-small">
-        <div style="width: 200px;" class="uk-text-right">0 total highfives</div>
+        <div style="width: 200px;" class="uk-text-right"><span id="total_highfives">0</span> total highfives</div>
         <div style="width: 200px;" class="uk-text-left">1 highfive = 0 matic</div>
     </div>
 
